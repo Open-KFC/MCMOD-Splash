@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mcmodslash",
+  "name": "MCMOD-Slash",
+  "description": "",
+  "version": "0.1.0",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["OpenKFC"],
+  "credits": "InkAndSoul(for MCMOD-Slash)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
