@@ -23,6 +23,7 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+            jvmArgs += "-Dfml.coreMods.load=openkfc.mcmodslash.asm.SlashPlugin"
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
@@ -51,7 +52,8 @@ jar {
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"OpenKFC",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "FMLCorePlugin": "openkfc.mcmodslash.asm.SlashPlugin"
         ])
     }
 }
