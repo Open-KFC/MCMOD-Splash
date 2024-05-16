@@ -44,7 +44,8 @@ public class SlashTransformer implements IClassTransformer {
                     for(int j = 4; j < 11; j++){
                         methodInit.instructions.remove(methodInit.instructions.get(i + 3));
                     }
-                    methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new MethodInsnNode(184, "openkfc/mcmodslash/asm/SlashTransformer", "getSlashText", "()Ljava/lang/String;", false));
+                    //methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new MethodInsnNode(184, "openkfc/mcmodslash/asm/SlashTransformer", "getSlashText", "()Ljava/lang/String;", false));
+                    methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new FieldInsnNode(178, "openkfc/mcmodslash/asm/SlashTransformer", "slashText", "Ljava/lang/String;"));
                     break;
                 }
             }
@@ -55,10 +56,6 @@ public class SlashTransformer implements IClassTransformer {
     }
 
     public static String slashText = "MCMOD-Slash!";
-
-    public static String getSlashText(){
-        return slashText;
-    }
 
     public static Boolean slashTextFormMCMOD(){
         boolean result = false;
