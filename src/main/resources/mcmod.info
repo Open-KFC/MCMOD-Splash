@@ -1,14 +1,14 @@
 [
 {
-  "modid": "mcmodslash",
-  "name": "MCMOD-Slash",
-  "description": "",
+  "modid": "mcmodsplash",
+  "name": "MCMOD-Splash",
+  "description": "SplashText in MainMenu now will be replaced by SplashText in mcmod.cn.(This is not a mod, but a coremod)",
   "version": "0.1.0",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["OpenKFC"],
-  "credits": "InkAndSoul(for MCMOD-Slash)",
+  "credits": "xfl03(for CoreModTutor), lumien(for NoNausea), InkAndSoul(for MCMOD-Splash)",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

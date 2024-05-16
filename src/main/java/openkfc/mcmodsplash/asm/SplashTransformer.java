@@ -1,4 +1,4 @@
-package openkfc.mcmodslash.asm;
+package openkfc.mcmodsplash.asm;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
@@ -14,7 +14,7 @@ import java.util.Objects;
 
 import static org.objectweb.asm.ClassWriter.COMPUTE_FRAMES;
 
-public class SlashTransformer implements IClassTransformer {
+public class SplashTransformer implements IClassTransformer {
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -25,7 +25,7 @@ public class SlashTransformer implements IClassTransformer {
     }
 
     public byte[] patchGuiMainMenu(byte[] basicClass){
-        if(!slashTextFormMCMOD()){return basicClass;}
+        if(!splashTextFormMCMOD()){return basicClass;}
 
         ClassNode classNode = new ClassNode();
         ClassReader classReader = new ClassReader(basicClass);
@@ -44,8 +44,8 @@ public class SlashTransformer implements IClassTransformer {
                     for(int j = 4; j < 11; j++){
                         methodInit.instructions.remove(methodInit.instructions.get(i + 3));
                     }
-                    //methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new MethodInsnNode(184, "openkfc/mcmodslash/asm/SlashTransformer", "getSlashText", "()Ljava/lang/String;", false));
-                    methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new FieldInsnNode(178, "openkfc/mcmodslash/asm/SlashTransformer", "slashText", "Ljava/lang/String;"));
+                    //methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new MethodInsnNode(184, "openkfc/mcmodsplash/asm/SplashTransformer", "getSplashText", "()Ljava/lang/String;", false));
+                    methodInit.instructions.insertBefore(methodInit.instructions.get(i + 3), new FieldInsnNode(178, "openkfc/mcmodsplash/asm/SplashTransformer", "splashText", "Ljava/lang/String;"));
                     break;
                 }
             }
@@ -55,9 +55,9 @@ public class SlashTransformer implements IClassTransformer {
         return writer.toByteArray();
     }
 
-    public static String slashText = "MCMOD-Slash!";
+    public static String splashText = "MCMOD-Splash!";
 
-    public static Boolean slashTextFormMCMOD(){
+    public static Boolean splashTextFormMCMOD(){
         boolean result = false;
         try {
             URL url = new URL("https://www.mcmod.cn/v1/");
@@ -72,7 +72,7 @@ public class SlashTransformer implements IClassTransformer {
                     while ((line = reader.readLine()) != null) {
                         content.append(line);
                     }
-                    slashText = content.toString().replaceAll("<[^>]*>", "");
+                    splashText = content.toString().replaceAll("<[^>]*>", "");
                     result = true;
                 }
             }
