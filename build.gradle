@@ -13,8 +13,8 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '0.1.0'
-group = 'openkfc.mcmodslash'
-archivesBaseName = 'MCMOD-Slash'
+group = 'openkfc.mcmodsplash'
+archivesBaseName = 'MCMOD-Splash'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -23,7 +23,7 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            jvmArgs += "-Dfml.coreMods.load=openkfc.mcmodslash.asm.SlashPlugin"
+            jvmArgs += "-Dfml.coreMods.load=openkfc.mcmodsplash.asm.SplashPlugin"
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
@@ -53,7 +53,7 @@ jar {
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"OpenKFC",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "FMLCorePlugin": "openkfc.mcmodslash.asm.SlashPlugin"
+            "FMLCorePlugin": "openkfc.mcmodsplash.asm.SplashPlugin"
         ])
     }
 }
