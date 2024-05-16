@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 import static org.objectweb.asm.ClassWriter.COMPUTE_FRAMES;
@@ -53,10 +54,10 @@ public class SlashTransformer implements IClassTransformer {
         return writer.toByteArray();
     }
 
-    public static String slashText = "MCMODSlash-Empty";
+    public static String slashText = "MCMOD-Slash!";
 
     public static String getSlashText(){
-        return SlashTransformer.slashText;
+        return slashText;
     }
 
     public static Boolean slashTextFormMCMOD(){
@@ -68,13 +69,13 @@ public class SlashTransformer implements IClassTransformer {
             connection.setRequestMethod("GET");
 
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(),StandardCharsets.UTF_8))) {
                     StringBuilder content = new StringBuilder();
                     String line;
                     while ((line = reader.readLine()) != null) {
                         content.append(line);
                     }
-                    SlashTransformer.slashText = content.toString().replaceAll("<[^>]*>", "");
+                    slashText = content.toString().replaceAll("<[^>]*>", "");
                     result = true;
                 }
             }
