@@ -46,9 +46,9 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "mcmodslash",
+            "Specification-Title": "mcmodsplash",
             "Specification-Vendor": "OpenKFC",
-            "Specification-Version": "1", // We are version 1 of ourselves
+            "Specification-Version": "0.1.0",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"OpenKFC",
